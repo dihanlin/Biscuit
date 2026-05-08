@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biscuit</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#FFF8E7;font-family:'Nunito',sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.app{background:#FFFDF5;border-radius:24px;border:1.5px solid #F0E0A8;width:100%;max-width:520px;height:700px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 4px 24px rgba(249,199,79,0.15)}
+.header{background:#FFF8E7;padding:16px 20px;border-bottom:1.5px solid #F0E0A8;display:flex;align-items:center;justify-content:space-between}
+.header-left{display:flex;align-items:center;gap:12px}
+.dog-wrap{width:44px;height:44px;background:#F9C74F;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.header-name{font-family:'Fraunces',serif;font-size:20px;color:#3D2B00;font-weight:700;line-height:1.1}
+.header-sub{font-size:11px;color:#9B8040;font-weight:700;letter-spacing:0.3px;margin-top:2px}
+.online-dot{width:7px;height:7px;border-radius:50%;background:#52C97B;display:inline-block;margin-right:4px}
+.demo-toggle{display:flex;align-items:center;gap:6px;background:#fff;border:1.5px solid #F0E0A8;border-radius:20px;padding:5px 12px;cursor:pointer;transition:all 0.2s}
+.demo-toggle.active{background:#FFF3CD;border-color:#F9C74F}
+.demo-toggle-icon{font-size:14px}
+.demo-toggle-text{font-size:10.5px;font-weight:800;color:#9B8040;letter-spacing:0.5px}
+.messages{flex:1;overflow-y:auto;padding:20px 16px;display:flex;flex-direction:column;gap:14px;background:#FFFDF5}
+.msg{display:flex;gap:8px;align-items:flex-start}
+.msg.user{flex-direction:row-reverse}
+.avatar{width:32px;height:32px;border-radius:10px;background:#F9C74F;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.msg.user .avatar{background:#7C6FCD;font-size:11px;font-weight:800;color:#fff}
+.msg-body{max-width:80%;display:flex;flex-direction:column;gap:4px}
+.msg.user .msg-body{align-items:flex-end}
+.sender{font-size:10px;font-weight:800;color:#C4A840;letter-spacing:0.4px;padding:0 2px}
+.msg.user .sender{color:#9B8FCC}
+.bubble{padding:11px 15px;border-radius:16px;font-size:13.5px;line-height:1.6;color:#3D2B00}
+.msg.biscuit .bubble{background:#fff;border:1.5px solid #F0E0A8;border-top-left-radius:4px}
+.msg.user .bubble{background:#7C6FCD;color:#fff;border-top-right-radius:4px}
+.safety-badge{display:inline-flex;align-items:center;gap:5px;background:#FFF3CD;border:1px solid #F9C74F;border-radius:8px;padding:3px 8px;font-size:10px;font-weight:800;color:#9B6A00;margin-top:2px}
+.visual-card{background:#fff;border:1.5px solid #F0E0A8;border-radius:16px;padding:14px;margin-top:4px;max-width:320px}
+.visual-card h3{font-size:12px;font-weight:800;color:#9B8040;letter-spacing:0.4px;margin-bottom:10px;text-transform:uppercase}
+.ocean-bars{display:flex;flex-direction:column;gap:6px}
+.bar-row{display:flex;align-items:center;gap:8px}
+.bar-label{font-size:11px;font-weight:700;color:#3D2B00;width:80px;flex-shrink:0}
+.bar-track{flex:1;background:#FFF3CD;border-radius:6px;height:14px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;transition:width 0.8s ease}
+.bar-val{font-size:10px;font-weight:700;color:#9B8040;width:32px;text-align:right}
+.dream-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dream-fact{background:#FFF8E7;border-radius:10px;padding:8px 10px}
+.dream-fact-title{font-size:10px;font-weight:800;color:#9B8040;letter-spacing:0.3px;margin-bottom:3px}
+.dream-fact-body{font-size:11.5px;color:#3D2B00;line-height:1.4;font-weight:600}
+.bully-steps{display:flex;flex-direction:column;gap:6px}
+.bully-step{display:flex;align-items:flex-start;gap:8px}
+.bully-num{width:22px;height:22px;background:#F9C74F;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#3D2B00;flex-shrink:0;margin-top:1px}
+.bully-text{font-size:12px;color:#3D2B00;font-weight:600;line-height:1.4}
+.demo-notice{background:#FFF8E7;border-top:1.5px solid #F0E0A8;padding:8px 16px;font-size:10.5px;color:#9B8040;text-align:center;font-weight:700;display:none}
+.demo-notice.visible{display:block}
+.input-area{background:#fff;border-top:1.5px solid #F0E0A8;padding:12px 14px;display:flex;gap:8px;align-items:center}
+.input{flex:1;background:#FFF8E7;border:1.5px solid #F0E0A8;border-radius:12px;padding:10px 14px;font-family:'Nunito',sans-serif;font-size:13px;color:#3D2B00;outline:none;transition:border-color 0.15s;resize:none!important;overflow-y:hidden;min-height:44px;max-height:200px;line-height:1.5;word-wrap:break-word;}
+.input:focus{border-color:#F9C74F}
+.input::placeholder{color:#C4A840}
+.send-btn{width:38px;height:38px;border-radius:11px;background:#F9C74F;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.15s}
+.send-btn:hover{background:#E8B820}
+.typing{display:flex;gap:4px;align-items:center;padding:8px 4px}
+.typing span{width:7px;height:7px;background:#F9C74F;border-radius:50%;animation:bounce 1s infinite}
+.typing span:nth-child(2){animation-delay:0.15s}
+.typing span:nth-child(3){animation-delay:0.3s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <div class="header-left">
+      <div class="dog-wrap">
+        <svg width="30" height="30" viewBox="0 0 42 42" fill="none">
+          <circle cx="21" cy="21" r="21" fill="#FFF0D0"/>
+          <ellipse cx="21" cy="24" rx="11" ry="9" fill="#D4956A"/>
+          <ellipse cx="21" cy="22" rx="9" ry="7.5" fill="#E8A87C"/>
+          <circle cx="18" cy="20" r="1.5" fill="#3D2B1F"/>
+          <circle cx="24" cy="20" r="1.5" fill="#3D2B1F"/>
+          <ellipse cx="21" cy="23" rx="2.5" ry="1.5" fill="#C17A52"/>
+          <path d="M18.5 25.5 Q21 27.5 23.5 25.5" stroke="#3D2B1F" stroke-width="1" stroke-linecap="round" fill="none"/>
+          <ellipse cx="12" cy="14" rx="5" ry="6.5" fill="#D4956A" transform="rotate(-20 12 14)"/>
+          <ellipse cx="30" cy="14" rx="5" ry="6.5" fill="#D4956A" transform="rotate(20 30 14)"/>
+          <ellipse cx="12" cy="14" rx="3" ry="4.5" fill="#E8C4A0" transform="rotate(-20 12 14)"/>
+          <ellipse cx="30" cy="14" rx="3" ry="4.5" fill="#E8C4A0" transform="rotate(20 30 14)"/>
+        </svg>
+      </div>
+      <div>
+        <div class="header-name">Biscuit</div>
+        <div class="header-sub"><span class="online-dot"></span>Your learning helper</div>
+      </div>
+    </div>
+    <div class="demo-toggle" id="demoToggle" onclick="toggleDemo()">
+      <span class="demo-toggle-icon">👾</span>
+      <span class="demo-toggle-text">DEMO MODE</span>
+    </div>
+  </div>
+
+  <div class="messages" id="messages">
+    <div class="msg biscuit">
+      <div class="avatar">
+        <svg width="20" height="20" viewBox="0 0 42 42" fill="none">
+          <ellipse cx="21" cy="24" rx="11" ry="9" fill="#D4956A"/>
+          <ellipse cx="21" cy="22" rx="9" ry="7.5" fill="#E8A87C"/>
+          <circle cx="18" cy="20" r="1.5" fill="#3D2B1F"/>
+          <circle cx="24" cy="20" r="1.5" fill="#3D2B1F"/>
+          <path d="M18.5 25.5 Q21 27.5 23.5 25.5" stroke="#3D2B1F" stroke-width="1" stroke-linecap="round" fill="none"/>
+          <ellipse cx="12" cy="14" rx="5" ry="6.5" fill="#D4956A" transform="rotate(-20 12 14)"/>
+          <ellipse cx="30" cy="14" rx="5" ry="6.5" fill="#D4956A" transform="rotate(20 30 14)"/>
+        </svg>
+      </div>
+      <div class="msg-body">
+        <div class="sender">BISCUIT</div>
+        <div class="bubble">Hi there! I am Biscuit, your curious learning helper! I love helping kids discover amazing things. What are you curious about today? ✨</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-notice" id="demoNotice">
+    👾 Demo mode: safety badges are visible for demonstration only — real children see only Biscuit's warm response.
+  </div>
+
+  <div class="input-area">
+    <textarea class="input" id="input" placeholder="Ask Biscuit anything..." oninput="autoResize(this)" onkeydown="handleKey(event)" rows="1"></textarea>
+    <button class="send-btn" onclick="sendMessage()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#3D2B00"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+let demoMode = false;
+let tier1Seen = [];
+let conversationHistory = [];
+
+function toggleDemo() {
+  demoMode = !demoMode;
+  document.getElementById('demoToggle').classList.toggle('active', demoMode);
+  document.getElementById('demoNotice').classList.toggle('visible', demoMode);
+}
+
+function dogAvatar() {
+  return `<div class="avatar"><svg width="20" height="20" viewBox="0 0 42 42" fill="none"><ellipse cx="21" cy="24" rx="11" ry="9" fill="#D4956A"/><ellipse cx="21" cy="22" rx="9" ry="7.5" fill="#E8A87C"/><circle cx="18" cy="20" r="1.5" fill="#3D2B1F"/><circle cx="24" cy="20" r="1.5" fill="#3D2B1F"/><path d="M18.5 25.5 Q21 27.5 23.5 25.5" stroke="#3D2B1F" stroke-width="1" stroke-linecap="round" fill="none"/><ellipse cx="12" cy="14" rx="5" ry="6.5" fill="#D4956A" transform="rotate(-20 12 14)"/><ellipse cx="30" cy="14" rx="5" ry="6.5" fill="#D4956A" transform="rotate(20 30 14)"/></svg></div>`;
+}
+
+
+
+function addMessage(role, text, wasFiltered, visual) {
+  const msgs = document.getElementById('messages');
+  const div = document.createElement('div');
+  div.className = 'msg ' + role;
+  const isUser = role === 'user';
+  const avatar = isUser
+    ? '<div class="avatar">YOU</div>'
+    : dogAvatar();
+  const sender = isUser ? 'YOU' : 'BISCUIT';
+  let extra = '';
+  if (wasFiltered && demoMode) extra += '<div class="safety-badge">👾 Safety filter active · Demo only</div>';
+  div.innerHTML = avatar + `<div class="msg-body"><div class="sender">${sender}</div><div class="bubble">${text}</div>${extra}</div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function addTyping() {
+  const msgs = document.getElementById('messages');
+  const div = document.createElement('div');
+  div.className = 'msg biscuit';
+  div.id = 'typing-indicator';
+  div.innerHTML = dogAvatar() + '<div class="msg-body"><div class="sender">BISCUIT</div><div class="typing"><span></span><span></span><span></span></div></div>';
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function removeTyping() {
+  const t = document.getElementById('typing-indicator');
+  if (t) t.remove();
+}
+
+function parseMarkdown(text) {
+  // Headers -> bold text (remove # symbols)
+  text = text.replace(/^#{1,3}\s+(.+)$/gm, '<strong>$1</strong>');
+  // Bold
+  text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  // Italic
+  text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  // Bullet points -> proper formatting
+  text = text.replace(/^[\*\-]\s+(.+)$/gm, '• $1');
+  // Numbered lists
+  text = text.replace(/^\d+\.\s+(.+)$/gm, '• $1');
+  // Newlines
+  text = text.replace(/\n/g, '<br>');
+  return text;
+}
+
+function autoResize(el) {
+  el.style.height = "auto";
+  el.style.height = Math.min(el.scrollHeight, 200) + "px";
+}
+
+function handleKey(event) {
+  const el = document.getElementById('input');
+  if (event.key === 'Enter' && !event.shiftKey) {
+    event.preventDefault();
+    sendMessage();
+  } else if (event.key === 'Enter' && event.shiftKey) {
+    event.preventDefault();
+    const val = el.value;
+    const pos = el.selectionStart;
+    // Check if current line starts with a number like "1."
+    const lines = val.substring(0, pos).split('\n');
+    const currentLine = lines[lines.length - 1];
+    const match = currentLine.match(/^(\d+)\./);
+    if (match) {
+      const nextNum = parseInt(match[1]) + 1;
+      el.value = val.substring(0, pos) + '\n' + nextNum + '. ' + val.substring(pos);
+      el.selectionStart = el.selectionEnd = pos + (nextNum + '. ').length + 1;
+    } else {
+      el.value = val.substring(0, pos) + '\n' + val.substring(pos);
+      el.selectionStart = el.selectionEnd = pos + 1;
+    }
+    autoResize(el);
+  }
+}
+
+async function sendMessage() {
+  const input = document.getElementById('input');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  addMessage('user', text, false, null);
+  addTyping();
+  try {
+    const res = await fetch('/chat', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({message: text, demo_mode: demoMode, tier1_seen: tier1Seen, history: conversationHistory})
+    });
+    const data = await res.json();
+    removeTyping();
+    if (data.tier1_seen) tier1Seen = data.tier1_seen;
+    conversationHistory.push({role: 'user', content: text});
+    conversationHistory.push({role: 'assistant', content: data.response});
+    addMessage('biscuit', parseMarkdown(data.response), data.was_filtered, null);
+  } catch(e) {
+    removeTyping();
+    addMessage('biscuit', 'Oops, something went wrong! Try again in a moment.', false, null);
+  }
+}
+</script>
+</body>
+</html>
