@@ -1,0 +1,16 @@
+.env
+.env.local
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+comparison_results.json
+*.log
+.DS_Store
+.vscode/
+.idea/
+gepa_results/
+optimized_prompt_*.txt
