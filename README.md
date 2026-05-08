@@ -36,8 +36,6 @@ The Gemma model is about 9.6GB so make sure you have the disk space.
 
 ## Getting it running
 
-These steps go in order. Don't skip ahead.
-
 **Start Ollama** (keep this terminal open):
 ```bash
 ollama serve
