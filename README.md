@@ -2,12 +2,11 @@
 
 Every week there's a new LLM, a new AI product, a new breakthrough. And almost all of it is built for adults.
 
-I kept thinking about kids. They're growing up in the middle of the most significant technological shift in a generation, and almost nobody is building AI *for* them — in a way that's genuinely safe, age-appropriate, and respects the role parents play. Kids deserve a head start on interacting with AI, but they need a safe way to do it.
+Kids are growing up in the middle of the biggest technological shift in a generation and I didn't want them to miss out on it. Learning to interact with AI is becoming a real skill, and I think kids deserve a safe, age-appropriate way to start building that skill early rather than being locked out until they're older.
 
-So I built Biscuit. It's not a replacement for parents — if anything, it's a reason for parents to be *more* involved, not less. Biscuit respects that parents are the ones who decide what their kids should know, what media they should consume, and what conversations are appropriate for their age. That's why sensitive topics always redirect to a trusted adult, and why the whole thing is open source — if you download this repo, you can read every rule Biscuit follows and change them if you disagree.
+Biscuit was born out of that idea. Not as a replacement for parents, but as a safe playground where kids can ask questions, explore ideas, and get a feel for what AI is like without stumbling into something they shouldn't see. Biscuit respects that parents are the ones who decide what their kids should know, what media they consume, and what conversations are appropriate for their age. Sensitive topics always redirect to a trusted adult. And because the whole thing is open source, parents who download this repo can read every rule Biscuit follows and change them if they disagree.
 
-Technically, it's a proof of concept exploring whether prompt engineering alone can make an open-source LLM safe for children — no fine-tuning, no cloud, no data collection. Turns out mostly yes, with some real limitations. It works well enough that I'd let a kid use it with a parent nearby.
-
+Technically, it's a proof of concept exploring whether prompt engineering alone can make an open-source LLM safe for children. No fine-tuning, no cloud, no data collection. Turns out mostly yes, with some real limitations. It works well enough that I'd let a kid use it with a parent nearby.
 ---
 
 ## What it actually does
