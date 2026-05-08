@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from flask import Flask, request, jsonify, send_from_directory
 from safety_filter import filter_response
 from figure_classifier import is_public_figure_question, classify_figure, KNOWN_TIER1

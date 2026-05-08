@@ -59,7 +59,6 @@ pip install -r requirements.txt
 ```bash
 cp .env.example .env
 # open .env and paste your API key (Anthropic by default)
-source .env
 ```
 
 **Start the server:**
