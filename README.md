@@ -15,7 +15,7 @@ This is a proof of concept exploring whether prompt engineering alone can make a
 You type a question, Biscuit answers. Simple on the surface, but there's a lot happening underneath:
 
 - Questions about public figures get classified dynamically — known bad actors are blocked immediately, unknown ones get searched on the web and judged by Claude Haiku in real time
-- Sensitive topics (death, divorce, bullying, self-harm) get warm, age-appropriate responses that redirect to trusted adults
+- Sensitive topics (death, divorce, bullying, self-harm) get warm, age-appropriate responses that acknowledge the child's feelings first before gently redirecting to a trusted adult. Leading with empathy rather than immediate redirection is a deliberate design choice; it keeps kids more open rather than shutting the conversation down
 - Jailbreak attempts get deflected without making the kid feel bad
 - Everything runs locally — Gemma via Ollama, fully offline after the initial download
 
