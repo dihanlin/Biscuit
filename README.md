@@ -48,8 +48,8 @@ ollama pull gemma4:e4b
 
 **Clone and set up the project:**
 ```bash
-git clone https://github.com/yourusername/biscuit.git
-cd biscuit
+git clone https://github.com/dihanlin/Biscuit.git
+cd Biscuit
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
