@@ -6,7 +6,7 @@ Kids are growing up in the middle of the biggest technological shift in a genera
 
 Biscuit was born out of that idea. Not as a replacement for parents, but as a safe playground where kids can ask questions, explore ideas, and get a feel for what AI is like without stumbling into something they shouldn't see. Biscuit respects that parents are the ones who decide what their kids should know, what media they consume, and what conversations are appropriate for their age. Sensitive topics always redirect to a trusted adult. And because the whole thing is open source, parents who download this repo can read every rule Biscuit follows and change them if they disagree.
 
-Technically it's a proof of concept exploring whether prompt engineering alone can make an open-source LLM safe for children. No fine-tuning, no cloud, no data collection. Turns out mostly yes, with some real limitations. It works well enough that I'd let a kid use it with a parent nearby.
+This is a proof of concept exploring whether prompt engineering alone can make an open-source LLM safe for children. No fine-tuning, no cloud, no data collection. Biscuit works well enough that I would let a kid use it with a parent or teacher nearby.
 
 ---
 
