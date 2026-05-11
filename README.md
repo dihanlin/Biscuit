@@ -10,16 +10,23 @@ This is a proof of concept exploring whether prompt engineering alone can make a
 
 ---
 
-## Screenshots
+## See it in action
 
-| Safety filter (demo mode) | Tone & personality |
-|---|---|
-| ![Safety filter active](screenshots/safety_demo.png) | ![Homework question](screenshots/tone_demo_2.png) |
+<div align="center">
+  <img src="screenshots/safety_demo.png" width="44%">&nbsp;&nbsp;
+  <img src="screenshots/tone_demo_2.png" width="44%">
+  <br><br>
+  <sub><b>Left:</b> Safety filter catching a drug question in demo mode &nbsp;&nbsp;|&nbsp;&nbsp; <b>Right:</b> Kid-friendly tone on an everyday question</sub>
+</div>
 
-**Public figure handling — Elon Musk**
+<br>
 
-![Public figure part 1](screenshots/public_figure_demo_1.png)
-![Public figure part 2](screenshots/public_figure_demo_2.png)
+<div align="center">
+  <img src="screenshots/public_figure_demo_1.png" width="44%">&nbsp;&nbsp;
+  <img src="screenshots/public_figure_demo_2.png" width="44%">
+  <br><br>
+  <sub><b>Public figure handling</b> — Biscuit gives a balanced, age-appropriate take on a controversial question</sub>
+</div>
 
 ---
 
