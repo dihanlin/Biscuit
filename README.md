@@ -10,22 +10,30 @@ This is a proof of concept exploring whether prompt engineering alone can make a
 
 ---
 
-## See it in action
+## See Biscuit in action
 
 <div align="center">
   <img src="screenshots/safety_demo.png" width="44%">&nbsp;&nbsp;
-  <img src="screenshots/tone_demo_2.png" width="44%">
+  <img src="screenshots/tone_demo_1.png" width="44%">
   <br><br>
-  <sub><b>Left:</b> Safety filter catching a drug question in demo mode &nbsp;&nbsp;|&nbsp;&nbsp; <b>Right:</b> Kid-friendly tone on an everyday question</sub>
+  <sub><b>Left:</b> Safety filter catching a drug question in demo mode &nbsp;&nbsp;|&nbsp;&nbsp; <b>Right:</b> Kid-friendly response to a homework question</sub>
 </div>
 
 <br>
 
 <div align="center">
-  <img src="screenshots/public_figure_demo_1.png" width="44%">&nbsp;&nbsp;
+  <img src="screenshots/tone_demo_2.png" width="44%">&nbsp;&nbsp;
+  <img src="screenshots/public_figure_demo_1.png" width="44%">
+  <br><br>
+  <sub><b>Left:</b> Homework response continued &nbsp;&nbsp;|&nbsp;&nbsp; <b>Right:</b> Balanced take on a controversial public figure</sub>
+</div>
+
+<br>
+
+<div align="center">
   <img src="screenshots/public_figure_demo_2.png" width="44%">
   <br><br>
-  <sub><b>Public figure handling</b> — Biscuit gives a balanced, age-appropriate take on a controversial question</sub>
+  <sub>Public figure response continued</sub>
 </div>
 
 ---
