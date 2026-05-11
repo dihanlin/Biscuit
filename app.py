@@ -94,6 +94,13 @@ def chat():
                 'tier1_seen': tier1_seen
             })
 
+    # Flag sensitive input topics for demo mode badge (input is handled by prompt, not filter)
+    SENSITIVE_INPUT_PATTERNS = [
+        'drug', 'weed', 'marijuana', 'cocaine', 'heroin', 'meth', 'alcohol',
+        'beer', 'wine', 'cigarette', 'vape', 'smoke', 'narcotic'
+    ]
+    input_flagged = any(p in msg_lower for p in SENSITIVE_INPUT_PATTERNS)
+
     # Check if web search needed
     web_context = get_web_context(user_message)
     final_message = user_message
@@ -119,7 +126,7 @@ def chat():
 
     return jsonify({
         'response': final_text,
-        'was_filtered': was_filtered if demo_mode else False,
+        'was_filtered': (was_filtered or input_flagged) if demo_mode else False,
         'visual': visual,
         'tier1_seen': tier1_seen
     })

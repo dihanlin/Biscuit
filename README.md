@@ -10,6 +10,19 @@ This is a proof of concept exploring whether prompt engineering alone can make a
 
 ---
 
+## Screenshots
+
+| Safety filter (demo mode) | Tone & personality |
+|---|---|
+| ![Safety filter active](screenshots/safety_demo.png) | ![Homework question](screenshots/tone_demo_2.png) |
+
+**Public figure handling — Elon Musk**
+
+![Public figure part 1](screenshots/public_figure_demo_1.png)
+![Public figure part 2](screenshots/public_figure_demo_2.png)
+
+---
+
 ## What it actually does
 
 You type a question, Biscuit answers. Simple on the surface, but there's a lot happening underneath:
