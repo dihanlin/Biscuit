@@ -12,28 +12,31 @@ This is a proof of concept exploring whether prompt engineering alone can make a
 
 ## See Biscuit in action
 
+### 🚫 Safety filter
+Drug and substance questions are caught and redirected — the child sees only a warm response. In demo mode, the safety badge is visible to show the filter fired.
+
 <div align="center">
-  <img src="screenshots/safety_demo.png" width="44%">&nbsp;&nbsp;
-  <img src="screenshots/tone_demo_1.png" width="44%">
-  <br><br>
-  <sub><b>Left:</b> Safety filter catching a drug question in demo mode &nbsp;&nbsp;|&nbsp;&nbsp; <b>Right:</b> Kid-friendly response to a homework question</sub>
+  <img src="screenshots/safety_demo.png" width="50%">
 </div>
 
 <br>
 
+### 💬 Everyday questions
+Biscuit answers at a 7–12 level with warmth and encouragement — no clinical tone, no walls of text.
+
 <div align="center">
-  <img src="screenshots/tone_demo_2.png" width="44%">&nbsp;&nbsp;
-  <img src="screenshots/public_figure_demo_1.png" width="44%">
-  <br><br>
-  <sub><b>Left:</b> Homework response continued &nbsp;&nbsp;|&nbsp;&nbsp; <b>Right:</b> Balanced take on a controversial public figure</sub>
+  <img src="screenshots/tone_demo_1.png" width="44%">&nbsp;&nbsp;
+  <img src="screenshots/tone_demo_2.png" width="44%">
 </div>
 
 <br>
 
+### 🌐 Public figure handling
+Controversial figures get a balanced, age-appropriate response. Known bad actors are blocked entirely.
+
 <div align="center">
+  <img src="screenshots/public_figure_demo_1.png" width="44%">&nbsp;&nbsp;
   <img src="screenshots/public_figure_demo_2.png" width="44%">
-  <br><br>
-  <sub>Public figure response continued</sub>
 </div>
 
 ---
