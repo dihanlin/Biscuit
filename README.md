@@ -36,7 +36,7 @@ Controversial figures get a balanced, age-appropriate response. Known bad actors
 
 <div align="center">
   <img src="screenshots/public_figure_demo_1.png" width="44%">&nbsp;&nbsp;
-  <img src="screenshots/public_figure_demo_2.png" width="44%">
+  <img src="screenshots/public_figure_demo_updated.png" width="44%">
 </div>
 
 ---
