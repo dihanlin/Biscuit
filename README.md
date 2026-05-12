@@ -56,7 +56,7 @@ The only external calls are to an LLM API for safety classification (Claude Haik
 
 ## What you need before starting
 
-- A Mac with Apple Silicon (M1 or later) and at least 16GB RAM
+- Apple Silicon chip (M1 or later) and at least 16GB RAM — tested on MacBook Pro M4 Pro
 - [Ollama](https://ollama.com) installed — `brew install ollama`
 - Python 3.10+
 - An API key for an LLM provider — the safety judge and public figure classifier use Claude Haiku by default, but you can swap in any provider (OpenAI, Gemini, etc.) by updating the relevant calls in `safety_filter.py`, `figure_classifier.py`, and `web_search.py`. Anthropic keys at [console.anthropic.com](https://console.anthropic.com).
