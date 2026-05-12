@@ -134,7 +134,7 @@ The safety architecture has three independent layers so no single point of failu
 
 Public figure classification uses a cascade: hardcoded list first (Epstein, Diddy, etc.), then known historical figures (Hitler, Stalin — school curriculum, allowed), then web search + Claude Haiku for anyone else. Andrew Tate being blocked without being in the hardcoded list is a good example of this working.
 
-There's also partial RAG: Claude Haiku decides if a question needs current information, searches DuckDuckGo if yes, and injects the results into Gemma's prompt. It works for direct questions but Gemma E4B sometimes ignores the injected context in favor of its training data. Known limitation.
+There's also partial RAG (Claude Haiku decides if a question needs current information, searches DuckDuckGo if yes, and injects the results into Gemma's prompt). It works for direct questions but Gemma E4B sometimes ignores the injected context in favor of its training data, which is a known limitation of smaller open models.
 
 ---
 
