@@ -155,7 +155,7 @@ Run it yourself:
 ```bash
 python compare_prompts.py
 ```
-Takes about 15 minutes.
+This should take about 15 minutes.
 
 ---
 
