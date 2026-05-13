@@ -35,8 +35,7 @@ Biscuit answers at a 7–12 level with warmth and encouragement — no clinical 
 Controversial figures get a balanced, age-appropriate response. Known bad actors are blocked entirely.
 
 <div align="center">
-  <img src="screenshots/public_figure_demo_1.png" width="44%">&nbsp;&nbsp;
-  <img src="screenshots/public_figure_demo_updated.png" width="44%">
+  <img src="screenshots/public_figure_demo_new.png" width="50%">
 </div>
 
 ---
