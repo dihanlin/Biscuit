@@ -1,16 +1,8 @@
-import anthropic
+from llm_client import call_llm
 from ddgs import DDGS
 
 def needs_web_search(question):
-    """Ask Claude Haiku if this question needs current/recent information."""
-    try:
-        client = anthropic.Anthropic()
-        response = client.messages.create(
-            model="claude-haiku-4-5-20251001",
-            max_tokens=10,
-            messages=[{
-                "role": "user",
-                "content": f"""Does this question require current, recent, or up-to-date information to answer accurately?
+    prompt = f"""Does this question require current, recent, or up-to-date information to answer accurately?
 
 Question: "{question}"
 
@@ -28,16 +20,14 @@ Answer NO if the question is about:
 - Things that don't change over time
 
 Reply with ONLY one word: YES or NO."""
-            }]
-        )
-        answer = response.content[0].text.strip().upper()
+    try:
+        answer = call_llm(prompt, max_tokens=10).upper()
         return answer.startswith("YES")
     except Exception as e:
         print(f"[WebSearch Router] Error: {e}")
         return False
 
 def search_web(query, max_results=5):
-    """Search DuckDuckGo and return results as a string."""
     try:
         results = []
         with DDGS() as ddgs:
@@ -53,7 +43,6 @@ def search_web(query, max_results=5):
         return ""
 
 def get_web_context(question):
-    """Full pipeline: decide if search needed, run search, return context."""
     if not needs_web_search(question):
         print(f"[WebSearch] No search needed for: {question[:50]}")
         return None

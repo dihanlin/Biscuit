@@ -1,5 +1,5 @@
 import re
-import anthropic
+from llm_client import call_llm
 from ddgs import DDGS
 
 # Hardcoded Tier 1 — sexual abuse/trafficking criminals, always blocked
@@ -99,7 +99,6 @@ def classify_figure(name):
 
     # Unknown person - use web search + Claude Haiku to classify
     try:
-        client = anthropic.Anthropic()
 
         # Search for current information
         search_results = search_person(name)
@@ -125,12 +124,7 @@ Reply ALLOW if the person:
 
 Reply with ONLY one word: BLOCK or ALLOW."""
 
-        response = client.messages.create(
-            model="claude-haiku-4-5-20251001",
-            max_tokens=10,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        answer = response.content[0].text.strip().upper()
+        answer = call_llm(prompt, max_tokens=10).upper()
         print(f"[Classifier] {name} → Claude says: {answer}")
 
         if "BLOCK" in answer:

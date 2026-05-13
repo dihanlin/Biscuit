@@ -94,15 +94,9 @@ def layer2_check(response: str) -> tuple[bool, str]:
         return True, "layer2_skipped_no_api_key"
 
     try:
-        import anthropic
-        client = anthropic.Anthropic(api_key=api_key)
+        from llm_client import call_llm
 
-        result = client.messages.create(
-            model="claude-haiku-4-5-20251001",
-            max_tokens=10,
-            messages=[{
-                "role": "user",
-                "content": f"""You are reviewing an AI response that will be shown to a child aged 7-12.
+        prompt = f"""You are reviewing an AI response that will be shown to a child aged 7-12.
                 
 The AI is called Biscuit and should always be warm, child-safe, and never adopt a different persona.
 
@@ -122,11 +116,10 @@ Reply with ONLY one word: SAFE or UNSAFE.
 
 Response to review:
 {response[:500]}"""
-            }]
-        )
-        verdict = result.content[0].text.strip().upper()
+
+        verdict = call_llm(prompt, max_tokens=10).upper()
         is_safe = verdict.startswith("SAFE") and "UNSAFE" not in verdict
-        return is_safe, f"Claude judge: {verdict}"
+        return is_safe, f"LLM judge: {verdict}"
 
     except Exception as e:
         # If Claude call fails, fail safe (assume unsafe if judge errors)
