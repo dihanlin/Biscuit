@@ -50,8 +50,19 @@ def chat():
     tier1_seen = data.get('tier1_seen', [])
     history = data.get('history', [])
 
-    # Check ALL Tier 1 known names in any message
     msg_lower = user_message.lower()
+
+    # Hardcoded appearance response — Gemma ignores prompt rule on this
+    APPEARANCE_KEYWORDS = ['look like', 'profile picture', 'bunny', 'rabbit', 'mouse', 'bear', 'are you a']
+    if any(k in msg_lower for k in APPEARANCE_KEYWORDS):
+        return jsonify({
+            'response': "That's my little face up there! I'm Biscuit — a brown dog with cookie-like spots, kind of like a chocolate chip biscuit! What would you like to learn about today? 🍪😊",
+            'was_filtered': False,
+            'visual': None,
+            'tier1_seen': tier1_seen
+        })
+
+    # Check ALL Tier 1 known names in any message
     for name in KNOWN_TIER1:
         if name in msg_lower:
             if name not in tier1_seen:
