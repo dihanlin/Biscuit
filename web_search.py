@@ -20,6 +20,7 @@ Answer YES if the question asks about:
 - Recent releases (movies, songs, games) from the last year
 - Sports scores, standings, or recent results
 - Latest discoveries or announcements
+- Game tips, strategies, or how to play a specific game (Minecraft, Roblox, etc.)
 
 Answer NO if the question is about:
 - Science facts, history, how things work
