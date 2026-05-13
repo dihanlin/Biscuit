@@ -52,6 +52,16 @@ def chat():
 
     msg_lower = user_message.lower()
 
+    # Hardcoded current president response — web search unreliable for this
+    PRESIDENT_KEYWORDS = ['current president', 'current us president', 'current u.s. president', 'who is president', 'whos the president', "who's the president"]
+    if any(k in msg_lower for k in PRESIDENT_KEYWORDS):
+        return jsonify({
+            'response': "The current President of the United States is Donald Trump — he is the 47th president! He first served as the 45th president from 2017 to 2021, and then won again in 2024. If you want to know more about him or how the US government works, your parents or a teacher are great people to ask! 😊",
+            'was_filtered': False,
+            'visual': None,
+            'tier1_seen': tier1_seen
+        })
+
     # Hardcoded appearance response — Gemma ignores prompt rule on this
     APPEARANCE_KEYWORDS = ['look like', 'profile picture', 'bunny', 'rabbit', 'mouse', 'bear', 'are you a']
     if any(k in msg_lower for k in APPEARANCE_KEYWORDS):
@@ -98,8 +108,13 @@ def chat():
                 'tier1_seen': tier1_seen
             })
         elif tier == 2:
+            tier2_names = {
+                "donald trump": "Donald Trump is the 47th President of the United States. He previously served as the 45th President from 2017 to 2021, and is also known as a businessman. If you want to know more about him, your parents are a great person to ask! 😊",
+                "trump": "Donald Trump is the 47th President of the United States. He previously served as the 45th President from 2017 to 2021, and is also known as a businessman. If you want to know more about him, your parents are a great person to ask! 😊",
+            }
+            tier2_response = tier2_names.get(name.lower(), get_tier2_response(name))
             return jsonify({
-                'response': get_tier2_response(name),
+                'response': tier2_response,
                 'was_filtered': False,
                 'visual': None,
                 'tier1_seen': tier1_seen

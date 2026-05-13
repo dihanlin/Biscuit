@@ -26,12 +26,19 @@ KNOWN_HISTORICAL = [
     "attila the hun",
 ]
 
+# Known Tier 2 — controversial but answerable with neutral public role only
+KNOWN_TIER2 = [
+    "donald trump", "trump",
+    "bill clinton", "clinton",
+    "andrew tate",
+]
+
 # Words that indicate a description, not a real name
 DESCRIPTION_WORDS = [
     "the main", "the worst", "the best", "the biggest",
     "the villain", "the bad guy", "the good guy",
     "responsible for", "person in", "guy in", "character in",
-    "leader of", "president of", "king of", "queen of",
+    "leader of", "king of", "queen of",
 ]
 
 VAGUE_PRONOUNS = ["that", "this", "it", "them", "him", "her", "they"]
@@ -39,16 +46,16 @@ VAGUE_PRONOUNS = ["that", "this", "it", "them", "him", "her", "they"]
 def is_public_figure_question(message):
     msg = message.lower()
     patterns = [
-        r"who is (.+?)\??$",
-        r"who was (.+?)\??$",
-        r"what did (.+?) do",
-        r"tell me about (.+?)\??$",
-        r"why is (.+?) famous",
-        r"why was (.+?) famous",
-        r"have you heard of (.+?)\??$",
-        r"do you know (.+?)\??$",
-        r"can you tell me about (.+?)\??$",
-        r"can you tell me more about (.+?)\??$",
+        r"who is ([^?.!,]+)",
+        r"who was ([^?.!,]+)",
+        r"what did ([^?.!,]+?) do",
+        r"tell me about ([^?.!,]+)",
+        r"why is ([^?.!,]+?) famous",
+        r"why was ([^?.!,]+?) famous",
+        r"have you heard of ([^?.!,]+)",
+        r"do you know ([^?.!,]+)",
+        r"can you tell me about ([^?.!,]+)",
+        r"can you tell me more about ([^?.!,]+)",
     ]
     for pattern in patterns:
         match = re.search(pattern, msg)
@@ -92,6 +99,11 @@ def classify_figure(name):
     for known in KNOWN_HISTORICAL:
         if known in name_lower or name_lower in known:
             return 3, "Known historical figure - school curriculum"
+
+    # Check hardcoded Tier 2 (controversial but answerable)
+    for known in KNOWN_TIER2:
+        if known in name_lower or name_lower in known:
+            return 2, "Known Tier 2 - controversial, neutral role only"
 
     # Check if this looks like a description not a name
     if not is_real_name(name):

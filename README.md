@@ -161,7 +161,7 @@ This should take about 15 minutes.
 
 ## Known issues
 
-**Vague follow-ups don't always work** — if you say "tell me more about that," Gemma E4B sometimes doesn't connect it to the previous message. Fine-tuning would fix this, prompt engineering mostly doesn't.
+**Vague follow-ups don't always work** — if you say "tell me more about that," Gemma E4B sometimes doesn't connect it to the previous message. This gets worse after 2-3 turns with implicit references (e.g. "what was the general consensus after his first term?" losing track of who "his" refers to). Asking the full question explicitly works reliably. Fine-tuning would fix this, prompt engineering mostly doesn't.
 
 **Web search follow-ups get confused** — after a web-search answer, Gemma tends to mix its training data with the search results when answering follow-up questions. The "who was president before Trump?" → Biden getting skipped is the clearest example.
 
